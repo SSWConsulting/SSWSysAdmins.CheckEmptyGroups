@@ -1,14 +1,23 @@
 # Overview 
-This template provides users with a default set of issue templates and labels to work with.
+The primary objective of this script is to identify distribution groups in Azure AD that have no members. It's part of routine maintenance to ensure the Azure AD directory remains clean and free of clutter. This script is scheduled to run once per week.
 
-## Issue Templates
+    PowerShell Modules:
+        ExchangeOnlineManagement
+        Send-MailKitMessage (This module is preferred as SendMailMessage is obsolete)
+        SSW Write-Log module
 
-To see the reasoning behind these issue templates see the rule:
-https://www.ssw.com.au/rules/github-issue-templates
+    Configuration File (Config.PSD1):
+    This should be placed in the same directory as the script. It should include:
+        LogFile - Path to the log file.
+        LogModuleLocation - Path to the SSW Write-Log module.
+        TargetEmail - Email address where notifications should be sent.
+        OriginEmail - Email address that should appear in the "From" field of the notification.
+        TenantName - Azure AD tenant name.
+        ApplicationId - ID of the Azure application.
+        Thumbprint - Certificate thumbprint for connecting to Exchange Online.
 
-## Labels
+# Usage
 
-To see the reasoning behind these labels refer to the rule: 
-https://www.ssw.com.au/rules/labels-in-github
-
-To add the default labels to your repo use Labeler. See Luke Parker's repo for instructions on how to set it up https://github.com/Hona/LabelTemplateRepository#readme
+    Ensure all prerequisites are met.
+    Schedule the script to run once per week or as needed.
+    If any empty groups are detected, a notification will be sent to the provided email address.
