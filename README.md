@@ -18,6 +18,5 @@ The primary objective of this script is to identify distribution groups in Azure
 
 # Usage
 
-    Ensure all prerequisites are met.
-    Schedule the script to run once per week or as needed.
+    The script is a scheduled task that runs once a week.
     If any empty groups are detected, a notification will be sent to the provided email address.
